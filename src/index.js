@@ -1,38 +1,39 @@
-import BundleTracker from 'webpack-bundle-tracker'
-
-function obj(props){
-    return {
-        "type": "object",
-        "properties": props
+export const parser = {
+    argumentSchema: {
+        additional: {
+            "type": "object",
+            "properties":{
+                "argument": {
+                    "type": "string",
+                    "default": "default",
+                    "help": "example argument extension"
+                }
+            }
+        }
     }
 }
 
-const argumentSchema = obj({
-    bundleTracker: obj({
-        "path": {
-            "type": "string",
-            "default": process.cwd(),
-            "help": "the base bath to write the bundle file to"
-        },
-        "filename": {
-            "type": "string",
-            "default": "webpack-stats.json",
-            "help": "where to write the bundle information to"
-        },
-        "logTime": {
-            "type": "boolean",
-            "default": false,
-            "help": "whether to log how long the build takes"
-        },
-        "indent": {
-            "type": "integer",
-            "help": "optional indentation to add to the bundle for legibility"
-        },
-    })
-})
 
-export { argumentSchema }
-
-export function webpackBuilder({ bundleTracker }){
-    return { plugins: [ new BundleTracker(bundleTracker) ] }
+export const webpackConfiguration = {
+    builders: {
+        additional({ additional }){
+            return additional
+        }
+    },
+    moduleLoaders: {
+        'jpg': { test: /\.jpg$/, loader: "file-loader" },
+        'common-asset': ['woff', 'tff', 'eot', 'svg', 'png', 'jpg', 'png', 'eot', 'jpg'],
+    }
 }
+
+
+function simple({configuration, args}){
+    console.log('simple test task from simple-test-polypacker-plugin/simple')
+    return 'simple-test runner run successful'
+}
+
+export const tasks = {
+    simple,
+    simpleChain: [ 'polypacker/compile', simple, 'polypacker/run', ]
+}
+

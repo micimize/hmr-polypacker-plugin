@@ -1,5 +1,5 @@
 {
-  "name": "bundle-tracker-polypacker-plugin",
+  "name": "simple-test-polypacker-plugin",
   "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
@@ -9,11 +9,9 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "webpack-bundle-tracker": "0.0.93"
-  },
   "devDependencies": {
     "babel-cli": "^6.14.0",
+    "polypacker": "^0.1.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-stage-0": "^6.5.0"
   },
