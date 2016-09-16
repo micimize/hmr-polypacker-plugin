@@ -1,14 +1,21 @@
 export const parser = {
     argumentSchema: {
-        additional: {
-            "type": "object",
-            "properties":{
-                "argument": {
-                    "type": "string",
-                    "default": "default",
-                    "help": "example argument extension"
-                }
+        "type": "object",
+        "properties":{
+            "additional": {
+                "type": "string",
+                "default": "default",
+                "help": "example argument extension"
+            },
+            "another": {
+                "type": "string",
+                "help": "example argument extension with no default"
             }
+        }
+    },
+    presets: {
+        ADDITIONAL(args){
+            args.another = args.another || 'default from preset'
         }
     }
 }

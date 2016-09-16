@@ -1,6 +1,6 @@
 {
   "name": "simple-test-polypacker-plugin",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
