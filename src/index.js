@@ -29,8 +29,8 @@ export const webpackConfiguration = {
         }
     },
     moduleLoaders: {
-        'jpg': { test: /\.jpg$/, loader: "file-loader" },
-        'common-asset': ['woff', 'tff', 'eot', 'svg', 'png', 'jpg', 'png', 'eot', 'jpg'],
+        'jpg': { test: /\.jpg$/, loader: "file-loader" }
+        //'common-asset': ['woff', 'tff', 'eot', 'svg', 'png', 'jpg', 'png', 'eot', 'jpg'],
     }
 }
 
