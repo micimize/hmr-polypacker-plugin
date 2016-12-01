@@ -16,6 +16,7 @@ export const parser = {
     presets: {
         ADDITIONAL(args){
             args.another = args.another || 'default from preset'
+            return args
         }
     }
 }
